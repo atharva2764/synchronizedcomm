@@ -2,6 +2,21 @@ spring:
   application:
     name: ecom-inventory-service
 
+  datasource:
+    uri: jdbc:h2:mem:inventorydb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+  h2:
+    console:
+      enabled=true:
+
+
 server:
   port: 8081
 
