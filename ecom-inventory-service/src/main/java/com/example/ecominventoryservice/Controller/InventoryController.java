@@ -16,23 +16,23 @@ public class InventoryController {
     }
 
     @GetMapping("/{productId}")
-    public Inventory checknInventory(@PathVariable String productId){
+    public Inventory checknInventory(@PathVariable String productId) {
         return inventoryService.checkInventory(productId);
     }
 
 
     @PostMapping()
-    public String addProduct(@RequestBody Inventory inventory){
+    public String addProduct(@RequestBody Inventory inventory) {
         return inventoryService.addProduct(inventory);
     }
 
     @PutMapping
-    public String updateProduct(@RequestBody Inventory inventory){
+    public String updateProduct(@RequestBody Inventory inventory) {
         return inventoryService.updateProduct(inventory);
     }
 
     @DeleteMapping("/{productId}")
-    public String deleteProduct(@PathVariable String productId){
+    public String deleteProduct(@PathVariable String productId) {
         return inventoryService.deleteProduct(productId);
     }
 
