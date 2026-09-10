@@ -15,8 +15,8 @@ public class Ordercontroller {
     }
 
 
-    @PostMapping("/{productId}")
-    public String placeOrder(@PathVariable String productId) {
-        return service.placeOrder(productId);
+    @PostMapping("/{product_id}")
+    public String placeOrder(@PathVariable long product_id) {
+        return service.placeOrder(product_id);
     }
 }

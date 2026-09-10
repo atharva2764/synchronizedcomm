@@ -15,13 +15,13 @@ public class InventoryController {
         this.inventoryService = inventoryService;
     }
 
-    @GetMapping("/{productId}")
-    public Inventory checknInventory(@PathVariable String productId) {
-        return inventoryService.checkInventory(productId);
+    @GetMapping("/{product_id}")
+    public Inventory checknInventory(@PathVariable long product_id) {
+        return inventoryService.checkInventory(product_id);
     }
 
 
-    @PostMapping()
+    @PostMapping
     public String addProduct(@RequestBody Inventory inventory) {
         return inventoryService.addProduct(inventory);
     }
@@ -32,7 +32,7 @@ public class InventoryController {
     }
 
     @DeleteMapping("/{productId}")
-    public String deleteProduct(@PathVariable String productId) {
+    public String deleteProduct(@PathVariable long productId) {
         return inventoryService.deleteProduct(productId);
     }
 

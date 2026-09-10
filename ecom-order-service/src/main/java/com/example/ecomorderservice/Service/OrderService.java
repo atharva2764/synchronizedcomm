@@ -17,15 +17,17 @@ public class OrderService {
         this.restClient = restClient;
     }
 
-    public String placeOrder(String productId) {
+    public String placeOrder(long product_id) {
 
         ResponseEntity<Inventory> body = restClient
                 .get()
-                .uri("http://localhost:8081/product/productId", productId)
+                .uri("http://localhost:8081/product/{product_id}", product_id)
                 .retrieve()
                 .toEntity(Inventory.class);
 
+        System.out.println(body.getBody());
         updateQuantity(body.getBody());
+
 
         return body != null && body.getBody().getQuantity() > 0 ? "IN STOCK " : "OUT OF STOCK";
     }
@@ -33,8 +35,14 @@ public class OrderService {
     private void updateQuantity(Inventory inventory) {
 
         inventory.setQuantity(inventory.getQuantity()-1);
+
+
+        System.out.println("////////////////////////////////////////////////////////////////////////////");
+        System.out.println(inventory);
+
+
         restClient.post()
-                .uri("http://localhost:8081/product/productId")
+                .uri("http://localhost:8081/product")
                 .body(inventory)
                 .retrieve()
                 .toBodilessEntity();

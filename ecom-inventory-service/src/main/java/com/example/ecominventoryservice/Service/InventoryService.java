@@ -16,8 +16,8 @@ public class InventoryService {
         this.inventoryRepo = inventoryRepo;
     }
 
-    public Inventory checkInventory(String productId) {
-        Optional<Inventory> byId = inventoryRepo.findById(Integer.valueOf((productId)));
+    public Inventory checkInventory(long product_id) {
+        Optional<Inventory> byId = inventoryRepo.findById((int) product_id);
 //        if (byId != null && byId.get().getQuantity() > 0) return "IN STOCK" ;
 //        else
 //        return "NOT IN STOCK";
@@ -35,8 +35,8 @@ public class InventoryService {
         return "Product Updated";
     }
 
-    public String deleteProduct(String productId) {
-        inventoryRepo.deleteById(Integer.valueOf(productId));
+    public String deleteProduct(long productId) {
+        inventoryRepo.deleteById((int)productId);
 
         return "deleted";
 

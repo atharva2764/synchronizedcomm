@@ -2,19 +2,38 @@ package com.example.ecomorderservice.dto;
 
 public class Inventory {
 
-    private String productId;
+    private long product_id;
     private int quantity;
 
-    public Inventory() {}
+    public Inventory() {
+    }
 
-    public Inventory(String productId, int quantity) {
-        this.productId = productId;
+    public Inventory(long product_id, int quantity) {
+        this.product_id = product_id;
         this.quantity = quantity;
     }
 
-    public String getProductId() { return productId; }
-    public void setProductId(String productId) { this.productId = productId; }
+    public long getProduct_id() {
+        return product_id;
+    }
 
-    public int getQuantity() { return quantity; }
-    public void setQuantity(int quantity) { this.quantity = quantity; }
+    public void setProduct_id(long product_id) {
+        this.product_id = product_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "productId='" + product_id + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
