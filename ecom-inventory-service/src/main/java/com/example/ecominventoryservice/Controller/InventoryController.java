@@ -16,7 +16,8 @@ public class InventoryController {
     }
 
     @GetMapping("/{product_id}")
-    public Inventory checknInventory(@PathVariable long product_id) {
+    public Inventory checknInventory(@PathVariable long product_id) throws InterruptedException {
+//        Thread.sleep(5000);
         return inventoryService.checkInventory(product_id);
     }
 

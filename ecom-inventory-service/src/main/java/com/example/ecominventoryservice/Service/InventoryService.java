@@ -36,7 +36,7 @@ public class InventoryService {
     }
 
     public String deleteProduct(long productId) {
-        inventoryRepo.deleteById((int)productId);
+        inventoryRepo.deleteById((int) productId);
 
         return "deleted";
 
