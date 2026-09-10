@@ -22,3 +22,7 @@ server:
 logging:
   level:
     com.example.ecomorderservice.Clients: DEBUG
+
+eureka:
+  registry-with-eureka: true
+  fetch-registry: true
