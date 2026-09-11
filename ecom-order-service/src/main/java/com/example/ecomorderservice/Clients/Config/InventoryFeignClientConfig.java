@@ -30,8 +30,8 @@ public class InventoryFeignClientConfig {
 
     // for ur authentication tocken header and all
     @Bean
-    public RequestInterceptor requestInterceptor(){
-        return requestTemplate->{
+    public RequestInterceptor requestInterceptor() {
+        return requestTemplate -> {
             requestTemplate.header("x-Collrelation-Id", UUID.randomUUID().toString());
         };
     }
